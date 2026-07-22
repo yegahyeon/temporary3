@@ -136,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
           pinReparent: true,
           anticipatePin: 1,
           snap: 1 / 6,
-          // markers: true
         },
       });
 
@@ -188,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
       start: "50% bottom",
       end: "bottom 50%",
       scrub: true,
-      // markers: true
     },
     opacity: 0,
     y: -50,
@@ -244,8 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
               trigger: el,
               start: 'top 75%',
-              // markers: false
-              // once: true,
             },
           }
         );
