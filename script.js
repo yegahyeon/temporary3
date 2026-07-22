@@ -120,17 +120,23 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.set(cards, { opacity: 0, y: 60 });
       if (salesBadge) gsap.set(salesBadge, { opacity: 0, scale: 0.6 });
 
+      /* 모바일에서만 end를 sec-trap 섹션 끝(bottom bottom)에 맞춤 -> pin 해제 지점이 섹션 경계와 일치.
+         PC는 기존 카드 개수 기반 픽셀 값을 그대로 사용(변경 없음). */
+      const isMobileTrap = window.matchMedia('(max-width: 768px)').matches;
+
       const cardsTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.expense-grid',
-          start: 'top bottom',
-          end: `+=${cards.length * (window.matchMedia('(max-width:768px)').matches ? 100 : 200) + (window.matchMedia('(max-width:768px)').matches ? 200 : 400)}`,
+          start: 'top 90%',
+          ...(isMobileTrap
+            ? { endTrigger: '.sec-trap', end: 'bottom 70%' }
+            : { end: `+=${cards.length * 200 + 400}` }),
           scrub: true,
           pin: trapWrap,
           pinReparent: true,
           anticipatePin: 1,
           snap: 1 / 6,
-          // markers: true
+          markers: true
         },
       });
 
