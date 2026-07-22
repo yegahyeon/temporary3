@@ -4,21 +4,22 @@
    - 하단 모바일 미디어 쿼리는 공란 (추후 작성)
    ========================================================= */
 
-/* ---------- 웹폰트 ---------- */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
-/* 캘리그래피 대체 폰트 (속초바다체/그리운체 미보유 시 폴백) */
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+/* ---------- 웹폰트 ----------
+   Pretendard / Nanum Brush Script(캘리그래피 대체 폰트)는 CSS @import 대신
+   index.html <head>의 <link rel="stylesheet">로 불러온다.
+   @import는 style.css 자체가 먼저 로드된 뒤에야 폰트 요청이 시작되는 순차 구조라
+   모바일처럼 지연이 큰 네트워크에서 폰트가 늦게 뜨거나 아예 안 뜨는 것처럼 보일 수 있다. */
 
-/* 실제 서비스 시 라이선스 확인 후 아래 폰트 파일을 연결하세요.
 @font-face {
   font-family: 'Sokcho Bada Calligraphy';
   src: url('./fonts/SokchoBadaCalligraphy.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Griun PolSensibility';
   src: url('./fonts/GriunPolSensibility.woff2') format('woff2');
 }
-*/
+
 
 /* =========================================================
    1. 공통
@@ -155,7 +156,7 @@ section { position: relative; width: 100%; overflow: hidden; }
 
 p.hero-sales {
   text-align: center;
-  font-family: 'Griun PolSensibility';
+  font-family: 'Griun PolSensibility', 'Nanum Brush Script', cursive;
   /* position: absolute;
   left: 50%;
   top: 780px; */
@@ -587,7 +588,7 @@ img {
   position: relative;
   z-index: 1;
   /* 지갑 위로 텍스트가 올라오도록 */
-  font-family: 'Griun PolSensibility', 'Nanum Pen Script', cursive;
+  font-family: 'Griun PolSensibility', 'Nanum Brush Script', cursive;
   font-size: 76px;
   font-weight: normal;
   text-align: center;
