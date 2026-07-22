@@ -282,7 +282,7 @@ p.hero-sales {
 .sales-card .label { font-size: 24px; }
 .sales-card .value { font-size: 56px; font-weight: 700; }
 
-.trap-sub { margin-top: 52px; font-size: 20px; line-height: 1.5; text-align: center;  text-shadow: 0px 0px 30px #000;}
+.trap-sub { margin-top: 52px; font-size: 20px; line-height: 1.5; text-align: center; text-shadow: 0px 0px 30px #000;}
 .trap-sub b { display: block; font-size: 32px; font-weight: 700; }
 
 .trap-arrow { width: 91px; margin: 30px auto 0;  }
