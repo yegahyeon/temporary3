@@ -16,10 +16,11 @@
 }
 
 @font-face {
-  font-family: 'Griun PolSensibility';
-  src: url('./fonts/GriunPolSensibility.woff2') format('woff2');
+    font-family: 'NostalgicPoliceVibe';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/Griun_PolSensibility-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
 }
-
 
 /* =========================================================
    1. 공통
@@ -27,6 +28,7 @@
 :root {
   --orange: #ff6200;
   --orange-80: rgba(255, 98, 0, 0.8);
+  --orange-40: rgba(255, 98, 0, 0.4);
   --orange-glow: rgba(255, 98, 0, 0.5);
   --color-bg: #0a0a0a;
   --color-white: #ffffff;
@@ -71,7 +73,7 @@ section { position: relative; width: 100%; overflow: hidden; }
 .tc { text-align: center; }
 .white { color: #fff; }
 .f-calli { font-family: 'Sokcho Bada Calligraphy', 'Nanum Brush Script', cursive; }
-.f-griun { font-family: 'Griun PolSensibility', 'Nanum Brush Script', cursive; }
+.f-griun { font-family: 'NostalgicPoliceVibe', 'Nanum Brush Script', cursive; }
 .w500 { font-weight: 500; }
 .w600 { font-weight: 600; }
 .w700 { font-weight: 700; }
@@ -97,7 +99,7 @@ section { position: relative; width: 100%; overflow: hidden; }
   width: 380px;
   max-width: 90%;
   padding: 20px 0;
-  background: var(--orange-80);
+  background: var(--orange);
   border: 2px solid var(--orange);
   border-radius: 15px;
   box-shadow: 0 2px 58px 0 var(--orange-glow);
@@ -108,7 +110,7 @@ section { position: relative; width: 100%; overflow: hidden; }
   white-space: nowrap;
   transition: background 0.2s, transform 0.2s;
 }
-.cta-btn:hover { background: var(--orange); transform: scale(1.03); }
+.cta-btn:hover { background: var(--orange-80); transform: scale(1.03); }
 
 /* =========================================================
    2. 히어로
@@ -156,7 +158,7 @@ section { position: relative; width: 100%; overflow: hidden; }
 
 p.hero-sales {
   text-align: center;
-  font-family: 'Griun PolSensibility', 'Nanum Brush Script', cursive;
+  font-family: 'NostalgicPoliceVibe', 'Nanum Brush Script', cursive;
   /* position: absolute;
   left: 50%;
   top: 780px; */
@@ -204,7 +206,7 @@ p.hero-sales {
   }
 }
 .hero-title .t-sub  { color: #fff; font-size: 36px; font-weight: 700; line-height: 1.5; }
-.hero-title .t-main { font-size: 48px; font-weight: 700; line-height: 1.5; }
+.hero-title .t-main { font-size: 48px; font-weight: 700; line-height: 1.5; color: #fff; }
 .hero-title .t-main .hl { margin-top: 14px; }
 
 /* hero-title이 다 나타난 뒤(1.8s 시점)에 이어서 자연스럽게 등장 */
@@ -269,7 +271,7 @@ p.hero-sales {
   max-width: 100%;
   height: 146px;
   margin-top: 34px;
-  background: var(--orange-80);
+  background: var(--orange);
   border: 1px solid var(--orange);
   border-radius: 15px;
   box-shadow: 0 4px 58px 0 var(--orange-glow);
@@ -588,7 +590,7 @@ img {
   position: relative;
   z-index: 1;
   /* 지갑 위로 텍스트가 올라오도록 */
-  font-family: 'Griun PolSensibility', 'Nanum Brush Script', cursive;
+  font-family: 'NostalgicPoliceVibe', 'Nanum Brush Script', cursive;
   font-size: 76px;
   font-weight: normal;
   text-align: center;
@@ -682,7 +684,7 @@ img {
   font-weight: 500;
   background-color: #ff6200;
   padding: 0.6rem 1.6rem;
-  color: #000;
+  color: #fff;
 }
 
 /* 하단 화이트 커브 */
@@ -856,6 +858,7 @@ img {
   line-height: 1.5;
   text-align: center;
   z-index: 2;
+  color: #fff;
 }
 .banner-main .hl { padding: 0 30px; }
 
@@ -1595,7 +1598,7 @@ img {
   .cheat-title { font-size: clamp(22px, 6.6vw, 42px); white-space: normal; word-break: keep-all; }
 
   .cheat-grid { margin-top: 60px; width: 100%; max-width: 380px; gap: 18px 7px; justify-content: center; }
-  .cheat-card { flex: 0 0 calc((100% - 14px) / 3); width: auto; height: auto; min-height: 176px; padding: 12px 6px; gap: 6px; }
+  .cheat-card { flex: 0 0 calc((140% - 14px) / 3); width: auto; height: auto; min-height: 176px; padding: 12px 6px; gap: 6px; }
   .cheat-card .ghost-num { font-size: 54px; top: 18px; }
   .cheat-card h3 { font-size: clamp(12px, 3.5vw, 15px); }
   .cheat-card p  { font-size: clamp(10px, 3vw, 13px); }
@@ -1617,8 +1620,8 @@ img {
   .proof-gallery .arrows { width: min(84vw, 330px); top: 82px; }
   .arrow-btn { width: 24px; height: 46px; }
 
-  .proof-gallery .zoom { width: 92%; max-width: 340px; height: 52px; margin-top: -34px; }
-  .proof-gallery .zoom img { width: 100%; height: auto; margin-top: 0; }
+  .proof-gallery .zoom { width: 92%; max-width: 300px; height: 52px; margin-top: -34px; }
+  .proof-gallery .zoom img { width: 100%; height: auto; margin-top: -230px; }
 
   /* ---------- 11. 지점별 수익 테이블 ---------- */
   .sec-branch { padding: 88px 14px 110px; }
@@ -1630,7 +1633,7 @@ img {
   .branch-body .sales-label { font-size: 11px; }
   .branch-body ul { width: auto; gap: 6px; font-size: 11px; }
 
-  .stamp { width: 64px; right: -6px; top: -40px; }
+  .stamp { width: 64px; right: -16px; top: -40px; }
 
   .profit-bar { width: 100%; height: auto; min-height: 76px; margin-top: -30px; padding: 12px 4px; }
   .profit-bar .cell .label { font-size: 12px; margin-bottom: 6px; }

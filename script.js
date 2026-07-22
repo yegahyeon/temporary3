@@ -292,8 +292,20 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         const split = SplitText.create(bannerHl, { type: 'chars' });
 
+
+        gsap.from(".banner-main", {
+          duration: 0.5,
+          y:-50,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: bannerHl,
+            start: 'top 85%',
+            
+          }
+
+        })
         gsap.from(split.chars, {
-          duration: 0.9,
+          duration: 0.4,
           y: 100,
           autoAlpha: 0,
           stagger: 0.05,
