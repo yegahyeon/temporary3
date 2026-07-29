@@ -15,33 +15,91 @@
 <body>
 
 <!-- ============================================================
-     SECTION 1. 히어로 
+     SECTION 1. 히어로 (Figma node 511:207 - 484:14)
 ============================================================ -->
-<section class="sec-hero hero-loading">
-  <!-- 장식 이미지 -->
-  <img class="deco deco-meat-lg"  src="./source/money.png" alt="" />
-  <img class="deco deco-meat-sm1" src="./source/money.png" alt="" />
-  <img class="deco deco-meat-sm2" src="./source/money.png" alt="" />
-  <img class="deco deco-meat-sm3" src="./source/money.png" alt="" />
-  <img class="deco deco-meat-md"  src="./source/money.png" alt="" />
-  
-  <div class="hero-circle">
-    <img src="./source/hero-1.png" alt="" />
+<header class="hero-nav">
+  <div class="hero-nav__inner">
+    <img class="hero-nav__logo" src="./source/logo.png" alt="브랜드포차 썸비" />
+    <nav class="hero-nav__menu">
+      <a href="#">썸비만의 차별점</a>
+      <a href="#">수익률</a>
+      <a href="#">매장사진</a>
+      <a href="#">메뉴</a>
+      <a href="#">창업과정</a>
+      <a href="#">썸비의 혜택</a>
+    </nav>
+    <a href="#inquiry" class="hero-nav__cta js-cta">창업 상담 받기</a>
   </div>
-  
-  <div class="hero-txt">
-    <img class="deco-fire-l hero-sales"   src="./source/wreath.png" alt="" />
-    <p class="hero-sales"><span class="s">월 매출</span> <span class="b">8,000</span> <span class="s">만원</span></p>
-    <img class="deco-fire-r hero-sales"   src="./source/wreath.png" alt="" />
-  </div>
+</header>
 
-  <div class="hero-title">
-    <p class="t-sub">프랜차이즈 본사만 배불리는 구조,</p>
-    <p class="t-main"><span class="hl">언제까지</span></p>
-    <p class="t-main"><span class="hl">버티시겠습니까?</span></p>
-  </div>
+<section class="sec-hero">
+  <span class="hero-glow" aria-hidden="true"></span>
 
-  <a href="#inquiry" class="cta-btn js-cta">창업 상담 받기</a>
+  <div class="inner">
+    <p class="hero-badge">브랜드 포차 썸비 · 창업 상담</p>
+
+    <p class="hero-quote">
+      <span class="hero-quote__mark" aria-hidden="true">&ldquo;</span>
+      포차 하나 10년 운영해보니 알겠더라고요.
+      <span class="hero-quote__mark" aria-hidden="true">&rdquo;</span>
+    </p>
+
+    <h1 class="hero-headline">
+      <span>잘되는 이유는</span><br>
+      <span><span class="hero-headline__accent f-griun">따로</span> 있습니다!</span>
+    </h1>
+
+    <div class="hero-desc">
+      <p><b>포차썸비가 10년간 매장을 운영</b>하며 쌓은 노하우로</p>
+      <p>창업을 고민하시는 분께 직접 상담해드립니다.</p>
+    </div>
+
+    <a href="#inquiry" class="cta-btn js-cta">창업 상담 받기</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 1-1. 10년의 이야기 (Figma node 511:207 - 484:15)
+============================================================ -->
+<section class="sec-story">
+  <div class="inner">
+    <div class="story-lead">
+      <p class="story-lead__year">2016년</p>
+      <p>덕계본점을 열면서 시작했습니다.</p>
+      <p>그땐 저도 &quot;이게 될까&quot; 하는 마음이 더 컸어요.</p>
+    </div>
+
+    <div class="story-years">
+      <span class="story-years__glow" aria-hidden="true"></span>
+      <p class="story-years__text f-griun">10년</p>
+    </div>
+
+    <div class="story-divider">
+      <span class="story-divider__line" aria-hidden="true"></span>
+      <p>여전히 현장에 있습니다</p>
+      <span class="story-divider__line" aria-hidden="true"></span>
+    </div>
+
+    <span class="story-connector" aria-hidden="true"></span>
+
+    <div class="story-branches">
+      <span class="story-branches__glow" aria-hidden="true"></span>
+      <div class="story-branches__circles">
+        <span>덕계본점</span>
+        <span>민락직영점</span>
+        <span>덕정점</span>
+      </div>
+      <p class="story-branches__label f-griun">매장 3곳</p>
+    </div>
+
+    <p class="story-note">지금은 <b>덕계본점, 민락직영점, 덕정점</b>까지 세 곳이 운영되고 있습니다.</p>
+
+    <div class="story-final">
+      <p>매장 수를 늘리는 데 집중하기보다</p>
+      <p>한 곳 한 곳 제가 <span class="hl">직접 관리하면서</span></p>
+      <p class="story-final__highlight"><b>진짜 되는 방식</b>만 남겼습니다.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ============================================================
@@ -207,7 +265,6 @@
         <i></i><i></i><i></i>
       </span>
 
-      <img class="question__emoji" src="./source/emoji-thinking.png" alt="생각하는 얼굴 이모지" />
       <!-- 배경 영수증 (장식) -->
     <img class="quote__receipt" src="./source/receipt.png" alt="" aria-hidden="true" />
 
@@ -238,8 +295,46 @@
     </div>
 
     <!-- 매출/수익 다이어그램 -->
-    <div class="structure-diagram">
-      <img src="./source/balance.png" alt="">
+    <div class="structure-diagram" role="img" aria-label="A업체는 매출 8,000만원에 수익 500만원으로 마진율 6.25%인 반면, 썸비는 매출 8,372만원에 수익 2,658만원으로 마진율 33.3%입니다.">
+      <div class="diagram-chart">
+        <span class="diagram-gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="diagram-divider" aria-hidden="true"></span>
+
+        <div class="diagram-group">
+          <div class="diagram-bars">
+            <span class="diagram-badge diagram-badge--gray" aria-hidden="true"><em>마진율</em><b>6.25%</b></span>
+            <div class="diagram-col">
+              <span class="diagram-value" data-tone="gray-dark">8,000만</span>
+              <div class="diagram-bar diagram-bar--gray-dark" style="--pct:95.6"></div>
+            </div>
+            <div class="diagram-col">
+              <span class="diagram-value" data-tone="gray-light">500만</span>
+              <div class="diagram-bar diagram-bar--gray-light" style="--pct:6"></div>
+            </div>
+          </div>
+          <p class="diagram-group__label">A업체</p>
+        </div>
+
+        <div class="diagram-group diagram-group--brand">
+          <div class="diagram-bars">
+            <span class="diagram-badge diagram-badge--dark" aria-hidden="true"><em>마진율</em><b>33.3%</b></span>
+            <div class="diagram-col">
+              <span class="diagram-value" data-tone="pink">8,372만</span>
+              <div class="diagram-bar diagram-bar--pink" style="--pct:100"></div>
+            </div>
+            <div class="diagram-col">
+              <span class="diagram-value" data-tone="red">2,658만</span>
+              <div class="diagram-bar diagram-bar--red" style="--pct:31.8"></div>
+            </div>
+          </div>
+          <p class="diagram-group__label">썸비</p>
+        </div>
+      </div>
+
+      <ul class="diagram-legend" aria-hidden="true">
+        <li><span class="swatch swatch--pink"></span>매출</li>
+        <li><span class="swatch swatch--red"></span>수익</li>
+      </ul>
     </div>
 
     <!-- 같은 창업이라도 -->
@@ -386,151 +481,501 @@
   <div class="inner">
     <div class="branch-table">
       <div class="branch-col">
-        <div class="branch-tab">덕계 본점</div>
-        <div class="branch-body">
-          <div><p class="sales">5,000만원</p><p class="sales-label">월 매출시</p></div>
-          <ul><li>- 인건비</li><li>- 매장임대료</li><li>- 식자재비</li><li>- 로열티</li><li>：</li></ul>
+        <div class="branch-photo"><img src="./source/store1.png" alt="덕계 본점 매장 전경" /></div>
+        <div class="stamp">
+          <img src="./source/badge1.png" alt="마진율 25.5%" />
         </div>
       </div>
       <div class="branch-col">
-        <div class="branch-tab">민락 직영점</div>
-        <div class="branch-body">
-          <div><p class="sales">8,000만원</p><p class="sales-label">월 매출시</p></div>
-          <ul><li>- 인건비</li><li>- 매장임대료</li><li>- 식자재비</li><li>- 로열티</li><li>：</li></ul>
+        <div class="branch-photo"><img src="./source/store2.png" alt="민락 직영점 매장 전경" /></div>
+        <div class="stamp">
+          <img src="./source/badge2.png" alt="마진율 25.5%" />
         </div>
       </div>
       <div class="branch-col">
-        <div class="branch-tab">덕정점</div>
-        <div class="branch-body">
-          <div><p class="sales">8,372만원</p><p class="sales-label">월 매출시</p></div>
-          <ul><li>- 인건비</li><li>- 매장임대료</li><li>- 식자재비</li><li>- 로열티</li><li>：</li></ul>
+        <div class="branch-photo"><img src="./source/store3.png" alt="덕정점 매장 전경" /></div>
+        <div class="stamp">
+          <img src="./source/badge3.png" alt="마진율 25.5%" />
         </div>
       </div>
     </div>
-    
-    <div class="profit-bar">
-      <div class="cell">
-        <p class="label">영업이익</p>
-        <p class="value">638 만원</p>
-        <div class="stamp">
-          <img src="./source/badge1.png" alt="" />
-        </div>
-      </div>
-      <div class="cell">
-        <p class="label">영업이익</p>
-        <p class="value">2,663 만원</p>
-        <div class="stamp">
-          <img src="./source/badge2.png" alt="" />
-        </div>
-      </div>
-      <div class="cell">
-        <p class="label">영업이익</p>
-        <p class="value">2,658 만원</p>
-        <div class="stamp">
-          <img src="./source/badge3.png" alt="" />
-        </div>
-      </div>
-    </div>
-
     <p class="branch-note">*실제 원가 시뮬레이션 적용 금액 입니다</p>
-
-    <a href="#inquiry" class="cta-btn js-cta">창업 컨설팅 상담 받기</a>
+  
+      <a href="#inquiry" class="cta-btn js-cta">창업 컨설팅 상담 받기</a>
+    </div>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 10. 창업 절차
+     SECTION 9-1. 레시피 라인업 (Figma node 501:184)
 ============================================================ -->
-<div class="process-head">
-  <p>썸비 창업은</p>
-  <p>절대 어렵지 않습니다!</p>
-</div>
+<section class="sec-recipe">
+  <div class="inner">
+    <div class="recipe-head">
+      <p class="recipe-sub">30년의 장사 경험과 10년 간의 포차 운영으로 다듬은<br />사계절 타지 않고 즐기는 메뉴!</p>
+      <h2 class="recipe-title f-calli">80여 가지의 레시피</h2>
+    </div>
+
+    <div class="deco recipe-watermark" aria-hidden="true">
+      <img src="./source/receipt-bg.png" alt="" />
+    </div>
+    <img class="deco recipe-brush recipe-brush--1" src="./source/brush-top.png" alt="" aria-hidden="true" />
+    <img class="deco recipe-brush recipe-brush--2" src="./source/brush-btm.png" alt="" aria-hidden="true" />
+
+    <div class="recipe-track">
+      <div class="recipe-row recipe-row--a">
+        <div class="recipe-card">
+          <img src="./source/rc-a1.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a2.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a3.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a4.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a5.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a7.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a8.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a1.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a2.png" alt="">
+        </div>
+      <div class="recipe-row-dup" aria-hidden="true">
+        <div class="recipe-card">
+          <img src="./source/rc-a3.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a4.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a5.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a6.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a7.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-a8.png" alt="">
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="recipe-track">
+      <div class="recipe-row recipe-row--b">
+        <div class="recipe-card">
+          <img src="./source/rc-b1.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b2.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b3.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b4.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b5.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b6.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b7.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b8.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b9.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b10.png" alt="">
+        </div>
+      <div class="recipe-row-dup" aria-hidden="true">
+        <div class="recipe-card">
+          <img src="./source/rc-b1.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b2.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b3.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b4.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b5.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b6.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b7.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b8.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b9.png" alt="">
+        </div>
+        <div class="recipe-card">
+          <img src="./source/rc-b10.png" alt="">
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10. 창업 절차 (Figma node 502:192)
+============================================================ -->
 <section class="sec-process">
+  <img class="deco process-bg" src="./source/process/bg-storefront.png" alt="" aria-hidden="true" />
+
   <div class="inner">
-    <p class="process-sub">사후관리까지, 썸비는 <b>모든 단계</b>를 동행합니다.</p>
-    <div class="step-list">
-      <div class="step-card step-final"><span class="step-pill">step1</span><h3>수익 진단 및 상권 분석</h3></div>
-      <div class="step-card"><span class="step-pill">step2</span><h3>계약 및 교육</h3></div>
-      <div class="step-card"><span class="step-pill">step3</span><h3>오픈</h3></div>
-      <div class="step-card "><span class="step-pill">step4</span><h3>사후관리</h3></div>
+    <div class="process-head">
+      <p class="process-title">썸비 창업, <span class="process-title__accent f-griun">절대</span> 어렵지 않습니다!</p>
+      <p class="process-sub">사후관리까지, 썸비는 <b>모든 단계</b>를 동행합니다.</p>
+    </div>
+
+    <div class="step-grid">
+      <div class="step-card step-card--active">
+        <span class="step-pill">STEP 01</span>
+        <span class="step-icon"><img class="step-icon__bg" src="./source/process/ellipse-a.svg" alt="" /><img class="step-icon__glyph" src="./source/process/icon-step1-headset.svg" alt="" /></span>
+        <h3>창업 상담</h3>
+        <p>썸비의 세밀한<br />창업 문의 및 상담</p>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">STEP 02</span>
+        <span class="step-icon"><img class="step-icon__bg" src="./source/process/ellipse-a.svg" alt="" /><img class="step-icon__glyph" src="./source/process/icon-step2-edit.svg" alt="" /></span>
+        <h3>상권 분석</h3>
+        <p>예비 점주 최적 입지<br />선정을 위한 분석</p>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">STEP 03</span>
+        <span class="step-icon"><img class="step-icon__bg" src="./source/process/ellipse-a.svg" alt="" /><img class="step-icon__glyph" src="./source/process/icon-step3-clipboard.svg" alt="" /></span>
+        <h3>임대차 컨설팅</h3>
+        <p>합리적인 임대차 계약을<br />위한 컨설팅</p>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">STEP 04</span>
+        <span class="step-icon"><img class="step-icon__bg step-icon__bg--combined" src="./source/process/icon-step4-wrench.svg" alt="" /></span>
+        <h3>실측 · 도면</h3>
+        <p>현장 실측과<br />인테리어 평면도 작업</p>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">STEP 08</span>
+        <span class="step-icon"><img class="step-icon__bg" src="./source/process/ellipse-a.svg" alt="" /><img class="step-icon__glyph" src="./source/process/icon-step8-palette.svg" alt="" /></span>
+        <h3>사후 지원</h3>
+        <p>메뉴 · 운영의 지속적<br />사후 지원</p>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">STEP 07</span>
+        <span class="step-icon"><img class="step-icon__bg" src="./source/process/ellipse-a.svg" alt="" /><img class="step-icon__glyph" src="./source/process/icon-step7-store.svg" alt="" /></span>
+        <h3>그랜드 오픈</h3>
+        <p>시운영을 거쳐<br />정식 오픈</p>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">STEP 06</span>
+        <span class="step-icon"><img class="step-icon__bg" src="./source/process/ellipse-a.svg" alt="" /><img class="step-icon__glyph" src="./source/process/icon-step6-basket.svg" alt="" /></span>
+        <h3>초도물품</h3>
+        <p>초도물품 입고와<br />현장 교육 실시</p>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">STEP 05</span>
+        <span class="step-icon"><img class="step-icon__bg" src="./source/process/ellipse-a.svg" alt="" /><img class="step-icon__glyph" src="./source/process/icon-step5-folder.svg" alt="" /></span>
+        <h3>교육 · 점검</h3>
+        <p>기본 2주 · 최대 4주<br />밀착형 교육</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 11. 창업 혜택 3가지
+     SECTION 10-1. 창업 비용 + 손익 분석 (Figma node 502:197)
 ============================================================ -->
-<section class="sec-benefit">
-  <img class="benefit-texture" src="./source/benefit-bg.png" alt="" />
+<section class="sec-cost">
+  <img class="deco cost-bg" src="./source/cost/bg-calculator.png" alt="" aria-hidden="true" />
+  <img class="deco cost-coin cost-coin--1" src="./source/cost/cal-1.png" alt="" aria-hidden="true" />
+  <img class="deco cost-coin cost-coin--2" src="./source/cost/cal-2.png" alt="" aria-hidden="true" />
+  <img class="deco cost-coin cost-coin--3" src="./source/cost/cal-3.png" alt="" aria-hidden="true" />
 
   <div class="inner">
-    <img class="benefit-fire" src="./source/point-stars.png" alt="" />
-    <div class="benefit-title">
-      <p class="sub">망설이고 있는 당신을 위한</p>
-      <p class="main">썸비만의 창업 혜택!</p>
+    <!-- 창업 비용 -->
+    <div class="cost-col">
+      <div class="cost-head">
+        <p class="cost-head__brand">브랜드 포차 썸비</p>
+        <p class="cost-head__title"><span class="cost-head__hl">창업 비용</span> (30평 기준)</p>
+      </div>
+
+      <div class="cost-tabs">
+        <span class="cost-tab cost-tab--active">브랜드전환</span>
+        <span class="cost-tab">업종변경</span>
+        <span class="cost-tab">신규창업</span>
+      </div>
+
+      <p class="cost-table-title">브랜드 전환</p>
+      <p class="cost-table-note">단위:원 / VAT 별도. 점포 상태별 변동 가능.</p>
+
+      <div class="cost-table">
+        <div class="cost-row cost-row--head">
+          <span class="cost-cell cost-cell--label">세부항목</span>
+          <span class="cost-cell cost-cell--note">비고</span>
+          <span class="cost-cell cost-cell--value">브랜드전환</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">가맹비</span>
+          <span class="cost-cell cost-cell--note"><b>10호점까지 면제</b>브랜드 영업권 보호, 초기 매뉴얼</span>
+          <span class="cost-cell cost-cell--value cost-cell--waived">3,000,000<em class="f-griun">0원</em></span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">교육비</span>
+          <span class="cost-cell cost-cell--note">운영ㆍ메뉴 교육 (2~4주)</span>
+          <span class="cost-cell cost-cell--value">5,000,000</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">계약이행보증금</span>
+          <span class="cost-cell cost-cell--note">200또는 보증보험 대체</span>
+          <span class="cost-cell cost-cell--value">보증보험<br />가능</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">내부 인테리어</span>
+          <span class="cost-cell cost-cell--note">평당 150만 (점포별 상이)</span>
+          <span class="cost-cell cost-cell--value">자율</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">간판 및 사인물</span>
+          <span class="cost-cell cost-cell--note">기본간판 (매장별 상이)</span>
+          <span class="cost-cell cost-cell--value">3,000,000</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">가구/비품</span>
+          <span class="cost-cell cost-cell--note"></span>
+          <span class="cost-cell cost-cell--value">자율</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">시설/집기</span>
+          <span class="cost-cell cost-cell--note">주방 설비 및 집기 일체</span>
+          <span class="cost-cell cost-cell--value">자율</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">홍보/마케팅비</span>
+          <span class="cost-cell cost-cell--note">온라인 마케팅 (매월)</span>
+          <span class="cost-cell cost-cell--value">자율</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-cell cost-cell--label">초도물품비</span>
+          <span class="cost-cell cost-cell--note">초기물품 및 소모품</span>
+          <span class="cost-cell cost-cell--value">2,000,000</span>
+        </div>
+        <div class="cost-row cost-row--sub">
+          <span class="cost-cell cost-cell--label">인테리어 별도공사</span>
+          <span class="cost-cell cost-cell--note">철거/전기증설/화장실/냉난방/공조/<br />외관공사/상하수도/음향공사/소방 등</span>
+          <span class="cost-cell cost-cell--value"></span>
+        </div>
+        <div class="cost-row cost-row--total">
+          <span class="cost-cell cost-cell--label">전체 총 투자금액</span>
+          <span class="cost-cell cost-cell--note">*교육비 포함 재계산된 총액(가맹비 한시적 면제 적용)<br />*점포 상태별 변동 가능</span>
+          <span class="cost-cell cost-cell--value">10,000,000+@</span>
+        </div>
+      </div>
+
+      <div class="cost-cta">
+        <a href="#inquiry" class="cost-cta__btn cost-cta__btn--fill js-cta">창업 상담 받기</a>
+        <a href="tel:031-823-1233" class="cost-cta__btn cost-cta__btn--outline">TEL. 031-823-1233</a>
+      </div>
     </div>
 
-    <div class="point-list">
-      <!-- POINT 1 -->
-      <div class="point-item">
-        <div class="point-head">
-          <span class="point-badge">point one</span>
-          <div class="txt">
-            <p class="t-sm w700">[선착순 10호점 한정]</p>
-            <p class="t-lg">가맹비 전액 무료</p>
-            <p class="t-sm">단 1,000만원으로 내 매장 시작가능</p>
-          </div>
-        </div>
-        <div class="point-photos">
-          <img src="./source/point1.png" alt="" />
-        </div>
+    <!-- 손익 분석 -->
+    <div class="cost-col pl-wrap">
+      <div class="pl-head">
+        <p class="pl-head__title f-griun">손익 분석</p>
+        <p class="pl-head__sub">민락직영점 2026년 5월 매출 기준</p>
       </div>
 
-      <!-- POINT 2 -->
-      <div class="point-item">
-        <div class="point-head">
-          <span class="point-badge">point two</span>
-          <div class="txt">
-            <p class="t-lg">업종변경? 걱정마세요!</p>
-            <p class="t-sm">기존 시설을 최대한 활용하여 최소 비용으로 즉시 전환 가능!</p>
-          </div>
-        </div>
-        <div class="before-after">
-          <div class="before">
-            <img src="./source/point2.png" alt="업종변경 전" />
-          </div>
-        </div>
-      </div>
+      <div class="pl-card">
+        <span class="pl-tag">홀매출<i class="pl-dot"></i>배달없음</span>
 
-      <!-- POINT 3 -->
-      <div class="point-item">
-        <div class="point-head">
-          <span class="point-badge">point Three</span>
-          <div class="txt">
-            <p class="t-lg w600">자금이 부족해도 걱정 NO!</p>
-          </div>
+        <div class="pl-stat">
+          <span class="pl-stat__label">2026년 5월 매출 합계</span>
+          <span class="pl-stat__value">4,187</span>
         </div>
-        <div class="loan-card">
-          <div class="loan-left">
-            <div class="loan-img"><img src="./source/point3.png" alt="" /></div>
-            <div class="loan-amount">
-              <p class="t1">최대</p>
-              <p class="t2">5,000만원</p>
-              <p class="t3">대출 연계 지원</p>
+
+        <div class="pl-block">
+          <p class="pl-block__title">매출비율</p>
+          <div class="pl-bar pl-bar--split">
+            <span class="pl-bar__seg" style="width:91.76%;background:#fe105e;"></span>
+            <span class="pl-bar__seg" style="width:8.24%;background:#3cff00;"></span>
+          </div>
+          <div class="pl-legend">
+            <div class="pl-legend__row">
+              <span class="pl-legend__dot" style="background:#fe105e;"></span>
+              <span class="pl-legend__txt">카드 매출<i class="pl-dot"></i>95%<i class="pl-dot"></i><b style="color:#fe105e;">3,978</b></span>
+            </div>
+            <div class="pl-legend__row">
+              <span class="pl-legend__dot" style="background:#3bff00;"></span>
+              <span class="pl-legend__txt">현금 매출<i class="pl-dot"></i>5%<i class="pl-dot"></i><b style="color:#3bff00;">209</b></span>
             </div>
           </div>
-          <div class="loan-info">
-            <div class="row"><p class="k">상환 방식</p><p class="v">최대 20개월 원금 균등</p></div>
-            <hr />
-            <div class="row"><p class="k">이자</p><p class="v">무이자</p></div>
-            <hr />
-            <div class="row"><p class="k">대출 시기</p><p class="v">서류 제출 후 2주</p></div>
-            <hr />
-            <div class="row"><p class="k">대상</p><p class="v">브랜드포차 썸비 가맹 운영자</p></div>
+        </div>
+
+        <div class="pl-block">
+          <p class="pl-block__title">비용 항목별</p>
+
+          <div class="pl-cost-item">
+            <div class="pl-cost-item__row"><span>식자재</span><span><b style="color:#fe105e;">1,256</b><i class="pl-dot"></i>30%</span></div>
+            <div class="pl-bar"><span class="pl-bar__fill" style="width:36.13%;"></span></div>
           </div>
+          <div class="pl-cost-item">
+            <div class="pl-cost-item__row"><span>인건비</span><span><b style="color:#fe105e;">661</b><i class="pl-dot"></i>15.8%</span></div>
+            <div class="pl-bar"><span class="pl-bar__fill" style="width:13.49%;"></span></div>
+          </div>
+          <div class="pl-cost-item">
+            <div class="pl-cost-item__row"><span>매장임대료</span><span><b style="color:#fe105e;">440</b><i class="pl-dot"></i>10.5%</span></div>
+            <div class="pl-bar"><span class="pl-bar__fill" style="width:8.14%;"></span></div>
+          </div>
+          <div class="pl-cost-item">
+            <div class="pl-cost-item__row"><span>기타운영비</span><span><b style="color:#fe105e;">436</b><i class="pl-dot"></i>10.4%</span></div>
+            <div class="pl-bar"><span class="pl-bar__fill" style="width:7.63%;"></span></div>
+          </div>
+        </div>
+
+        <div class="pl-profit">
+          <div class="pl-profit__txt">
+            <p class="pl-profit__label">예상 순이익</p>
+            <p class="pl-profit__value"><b>1,394</b><span>만원</span></p>
+          </div>
+          <div class="pl-profit__note">
+            <p>민락직영점 2026.5 실매출 4,187만원</p>
+            <p>인건ㆍ판관비 표준 모델 수익률 기준</p>
+          </div>
+          <div class="pl-profit__badge f-griun"><span>수익률</span><b>33.3%</b></div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11. 선착순 10호점 한정 (Figma node 482:989)
+============================================================ -->
+<section class="sec-launch">
+  <img class="launch-texture" src="./source/benefits/launch-bg-texture.jpg" alt="" aria-hidden="true" />
+
+  <div class="inner">
+    <p class="launch-badge">선착순 10호점 한정</p>
+
+    <div class="launch-card">
+      <p class="launch-card__lead">단 <b>1,000만원</b>으로 내 매장 시작 가능!</p>
+      <p class="launch-card__price">0원</p>
+      <div class="launch-stats">
+        <div class="launch-stat"><span class="launch-stat__label">가맹비</span><span class="launch-stat__value f-griun">전액무료</span></div>
+        <span class="launch-divider" aria-hidden="true"></span>
+        <div class="launch-stat"><span class="launch-stat__label">선착순</span><span class="launch-stat__value f-griun">10호점</span></div>
+        <span class="launch-divider" aria-hidden="true"></span>
+        <div class="launch-stat"><span class="launch-stat__label">단 돈</span><span class="launch-stat__value f-griun">1,000<i>만원</i></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="launch-marquee" aria-hidden="true">
+    <div class="launch-marquee__track">
+      <span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span>
+      <span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span><span>브랜드포차 썸비</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11-1. 업종변경? 걱정 NO! (Figma node 482:899)
+============================================================ -->
+<section class="sec-pivot">
+  <img class="deco pivot-brush pivot-brush--1" src="./source/benefits/pivot-brush-1.svg" alt="" aria-hidden="true" />
+  <img class="deco pivot-brush pivot-brush--2" src="./source/benefits/pivot-brush-2.svg" alt="" aria-hidden="true" />
+
+  <div class="inner">
+    <p class="pivot-title">업종변경? <span class="pivot-title__accent f-griun">걱정 NO!</span></p>
+
+    <div class="pivot-compare">
+      <div class="pivot-photo">
+        <span class="pivot-photo__tag">업종변경 전</span>
+        <img src="./source/benefits/pivot-before.png" alt="업종변경 전 매장 내부" />
+      </div>
+      <img class="pivot-arrow" src="./source/benefits/pivot-arrow.svg" alt="" aria-hidden="true" />
+      <div class="pivot-photo pivot-photo--after">
+        <span class="pivot-photo__tag pivot-photo__tag--gold">업종변경 후</span>
+        <img src="./source/benefits/pivot-after.png" alt="업종변경 후 매장 내부" />
+      </div>
+    </div>
+
+    <div class="pivot-foot">
+      <p class="pivot-foot__sub">기존 시설을 최대한 활용하여</p>
+      <p class="pivot-foot__main"><span class="pivot-foot__hl">최소 비용으로 즉시 전환</span> 가능!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11-2. 자금이 부족해도 괜찮습니다! (Figma node 482:934)
+============================================================ -->
+<section class="sec-loan">
+  <img class="deco loan-bg" src="./source/benefits/loan-bg.jpg" alt="" aria-hidden="true" />
+
+  <div class="inner">
+    <p class="loan-title">자금이 부족해도 <span class="loan-title__accent f-griun">괜찮습니다!</span></p>
+
+    <div class="loan-panel">
+      <div class="loan-amount">
+        <p class="loan-amount__label">최대</p>
+        <p class="loan-amount__value">5,000만원</p>
+        <p class="loan-amount__desc">대출 연계 지원</p>
+      </div>
+
+      <div class="loan-detail">
+        <div class="loan-detail__col loan-detail__col--terms">
+          <div class="loan-detail__row"><p class="k">상환 방식</p><p class="v">최대 20개월 원금 균등</p></div>
+          <hr />
+          <div class="loan-detail__row"><p class="k">이자</p><p class="v">무이자</p></div>
+          <hr />
+          <div class="loan-detail__row"><p class="k">대출 시기</p><p class="v">서류 제출 후 2주</p></div>
+          <hr />
+          <div class="loan-detail__row"><p class="k">대상</p><p class="v">브랜드포차 썸비 가맹 운영자</p></div>
+        </div>
+        <div class="loan-detail__col loan-detail__col--docs">
+          <p class="loan-detail__docs-title">준비서류</p>
+          <div class="loan-doc"><span class="loan-doc__num">01</span><span>사업자등록증 사본</span></div>
+          <hr />
+          <div class="loan-doc"><span class="loan-doc__num">02</span><span>임대차 계약서 사본</span></div>
+          <hr />
+          <div class="loan-doc"><span class="loan-doc__num">03</span><span>예금통장 (주류 거래) 사본</span></div>
+          <hr />
+          <div class="loan-doc"><span class="loan-doc__num">04</span><span>주민등록 초본 · 가족관계증명서 · 신분증 사본</span></div>
+          <hr />
+          <div class="loan-doc"><span class="loan-doc__num">05</span><span>인감증명서 · 인감도장</span></div>
+          <hr />
+          <div class="loan-doc"><span class="loan-doc__num">06</span><span>지방세 세목별 과세증명서</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="loan-note">담보 제공 시 최대 5천만원, 담보 없을 시 2천만원<br />(연대보증인 필요 · 신용등급 5등급 이상). 서류 제출 후 2주 이내 집행됩니다.</p>
   </div>
 </section>
 
@@ -614,6 +1059,127 @@
           <div>
             <p class="store-name">민락 직영점</p>
             <p class="store-addr">경기 의정부시 오목로 225번길 34-5</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ (Figma node 508:206) -->
+    <div class="faq-wrap">
+      <div class="faq-head">
+        <p class="faq-head__title">FAQ</p>
+        <p class="faq-head__sub">자주 묻는 질문들</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item is-open">
+          <button type="button" class="faq-item__q" aria-expanded="true">
+            <span>창업 자금이 부족한데도 창업이 가능한가요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>가능합니다. 예산에 맞는 창업 아이템을 추천해드리며, 필요한 경우 금융 연계나 다양한 지원 제도도 함께 안내해드립니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>창업 경험이 전혀 없어도 괜찮나요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>네, 괜찮습니다. 창업 상담부터 상권 분석, 실측·도면, 기본 2주~최대 4주의 밀착 교육까지 전 과정을 본사가 함께 진행하기 때문에 초보 창업자도 무리 없이 시작하실 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>상담을 받으면 반드시 계약해야 하나요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>아닙니다. 상담은 예산과 상권에 맞는 창업 방향을 안내해드리는 무료 서비스로, 상담 후 계약 여부는 전적으로 예비 점주님의 선택입니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>창업까지 얼마나 걸리나요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>매장 상태와 인테리어 규모에 따라 다르지만, 상담부터 그랜드 오픈까지 평균적으로 약 2~3개월 정도 소요됩니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>어떤 업종을 창업해야 할지 모르겠어요.</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>괜찮습니다. 기존 매장 운영 경험과 상권 데이터를 바탕으로 예비 점주님께 맞는 업종·브랜드를 함께 진단해드리며, 업종변경의 경우 기존 시설을 최대한 활용해 최소 비용으로 전환도 가능합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>창업 비용은 어느 정도 필요한가요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>30평 기준 브랜드전환 시 선착순 혜택으로 가맹비가 면제되어 약 1,000만원+@부터 시작 가능하며, 인테리어 별도공사 규모에 따라 총 투자금액은 달라질 수 있습니다. 자세한 항목은 위 '창업 비용' 표를 참고해주세요.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>본사 지원은 어디까지 받을 수 있나요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>창업 상담과 상권 분석부터 임대차 컨설팅, 실측·도면, 초도물품 준비, 교육까지 전 과정을 지원하며, 오픈 이후에도 메뉴·운영 관련 사후 지원을 지속적으로 제공합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>창업 후에도 운영 지원을 받을 수 있나요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>네. 오픈 이후에도 메뉴 업데이트, 운영 노하우, 마케팅 등 사후 지원이 지속적으로 이루어지며, 전 매장 수익 데이터를 공유해 실질적인 운영 개선을 돕고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>여러 브랜드를 한 번에 비교해볼 수 있나요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>네, 가능합니다. 상담 시 예산과 상권에 맞춰 브랜드전환·업종변경·신규창업 등 여러 방식을 함께 비교해드리며, 실제 가맹점의 매출·수익 데이터를 기준으로 안내해드립니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span>상담 신청은 어떻게 진행되나요?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>위 상담 신청 폼에 이름, 연락처, 창업 희망지역, 예산 등을 남겨주시면 담당자가 확인 후 순차적으로 연락드려 상세 상담을 진행합니다.</p>
+            </div>
           </div>
         </div>
       </div>

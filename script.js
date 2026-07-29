@@ -12,6 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', () => ScrollTrigger.refresh());
   }
 
+  const gnb = document.querySelector(".hero-nav");
+  document.addEventListener("scroll", () => {
+    const scrollT = window.scrollY;
+    if (scrollT !== 0) {
+      gnb.classList.add("down");
+    } else {
+      gnb.classList.remove("down");
+    }
+  });
+
   /* ---------- GSAP: 지갑 위 동전이 quote__path를 따라 움직이다 제자리에서 두 번 튀며 착지 ----------
      #quote__path는 <svg id="quote__path"><path d="..."/></svg> 구조라서,
      MotionPathPlugin에는 svg가 아니라 그 안의 실제 <path> 요소를 넘겨줘야 경로를 읽는다. */
@@ -193,35 +203,16 @@ document.addEventListener('DOMContentLoaded', () => {
     stagger: 0.3
   });
 
-  /* ---------- 창업 절차 스텝: 0.5초 간격으로 카드가 순서대로 활성화(무한 반복) ----------
-     step-final 클래스의 스타일(주황 배경)을 '활성' 상태로 보고, 카드를 하나씩 돌며
-     이 클래스를 옮겨 붙인다. 스크롤과 무관하게 페이지 로드 후 계속 반복된다. */
-  const stepCards = gsap.utils.toArray('.step-card');
-  if (stepCards.length && window.gsap) {
-    stepCards.forEach((card) => card.classList.remove('step-final'));
-
-    const stepTl = gsap.timeline({ repeat: -1 });
-
-    stepCards.forEach((card, i) => {
-      stepTl.call(() => {
-        stepCards.forEach((c) => c.classList.remove('step-final'));
-        card.classList.add('step-final');
-      }, null, i * 0.8);
-    });
-    stepTl.to({}, { duration: 0.5 }); /* 마지막 카드도 0.5초 유지한 뒤 처음부터 반복 */
-  }
-
-
   /* ---------- 0-1. 전체 섹션 공통 스크롤 등장(텍스트/요소 기본 리빌) ----------
-  hero는 자체 인트로가 있어 제외. 각 섹션의 .inner 바로 아래 자식(제목, 문단, 카드 묶음, 이미지 등)과
-  .inner가 없는 process-head를 리빌 대상으로 삼아, 화면에 들어오는 시점에 아래→위로 살짝 fade-up.
+  hero는 자체 인트로가 있어 제외. 각 섹션의 .inner 바로 아래 자식(제목, 문단, 카드 묶음, 이미지 등)을
+  리빌 대상으로 삼아, 화면에 들어오는 시점에 아래→위로 살짝 fade-up.
   동전(#quote__coin)의 모션패스 스크롤 트리거와는 별개의 트리거로 독립 동작. */
-  
-  
+
+
   if (window.gsap && window.ScrollTrigger) {
-    
+
     const revealTargets = gsap.utils.toArray(
-      'section:not(.sec-hero, .worry) .inner > *:not(.expense-grid):not(.point-list), .process-head'
+      'section:not(.sec-hero, .worry) .inner > *:not(.expense-grid)'
     );
     const reduceMotionReveal = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
@@ -250,32 +241,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* ---------- 창업 혜택 point-item: .point-list를 통째로가 아니라 각 point-item마다
-     개별 스크롤트리거로 하나씩 순서대로 fade-up 시킨다. ---------- */
-  const pointItems = gsap.utils.toArray('.point-item');
-  if (pointItems.length && window.gsap && window.ScrollTrigger) {
-    const reduceMotionPoints = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---------- 수익 구조 다이어그램: 막대가 아래에서부터 자라난 뒤,
+     값 레이블과 마진율 배지가 순서대로 팝인 ---------- */
+  const diagramEl = document.querySelector('.structure-diagram');
+  if (diagramEl && window.gsap && window.ScrollTrigger) {
+    const diagramBars = gsap.utils.toArray('.diagram-bar', diagramEl);
+    const diagramValues = gsap.utils.toArray('.diagram-value', diagramEl);
+    const diagramBadges = gsap.utils.toArray('.diagram-badge', diagramEl);
+    const reduceMotionDiagram = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (reduceMotionPoints) {
-      gsap.set(pointItems, { opacity: 1, y: 0 });
+    if (reduceMotionDiagram) {
+      gsap.set(diagramBars, { scaleY: 1 });
+      gsap.set(diagramValues, { opacity: 1 });
+      gsap.set(diagramBadges, { opacity: 1, scale: 1 });
     } else {
-      pointItems.forEach((item) => {
-        gsap.fromTo(
-          item,
-          { opacity: 0, y: 32 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            ease: 'power2.out',
-            scrub: true,
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 85%',
-            },
-          }
-        );
+      gsap.set(diagramBars, { scaleY: 0 });
+      gsap.set(diagramValues, { opacity: 0 });
+      gsap.set(diagramBadges, { opacity: 0, scale: 0.6 });
+
+      const diagramTl = gsap.timeline({
+        scrollTrigger: { trigger: diagramEl, start: 'top 75%', once: true },
       });
+
+      diagramTl
+        .to(diagramBars, { scaleY: 1, duration: 0.8, ease: 'power3.out', stagger: 0.12 })
+        .to(diagramValues, { opacity: 1, duration: 0.35, ease: 'power2.out', stagger: 0.1 }, '-=0.55')
+        .to(diagramBadges, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)', stagger: 0.15 }, '-=0.25');
     }
   }
 
@@ -348,45 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .to(stampEl, { scale: 0.9, x: -4, duration: 0.08, ease: 'power1.out' })
         .to(stampEl, { scale: 1.05, x: 4, duration: 0.1, ease: 'power1.out' })
         .to(stampEl, { scale: 1, x: 0, duration: 0.12, ease: 'power1.inOut' });
-    }
-  }
-
-  /* ---------- 0. 히어로 인트로: 매출 카운팅 + 장식 이미지 등장 ---------- */
-  const heroSection = document.querySelector('.sec-hero');
-  const heroCountEl = document.querySelector('.hero-sales .b');
-  if (heroSection && heroCountEl) {
-    const target = 8000;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-      heroCountEl.textContent = target.toLocaleString('ko-KR');
-      heroSection.classList.remove('hero-loading');
-    } else {
-      const duration = 1600;
-      const revealAt = 0.75; /* 8,000에 가까워지는 시점(75%)에 장식 이미지가 제자리로 날아옴 */
-      const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-      let revealed = false;
-      let start = null;
-
-      heroCountEl.textContent = '0';
-
-      const tick = (timestamp) => {
-        if (start === null) start = timestamp;
-        const progress = Math.min((timestamp - start) / duration, 1);
-        const eased = easeOutCubic(progress);
-        heroCountEl.textContent = Math.round(target * eased).toLocaleString('ko-KR');
-
-        if (!revealed && progress >= revealAt) {
-          revealed = true;
-          heroSection.classList.remove('hero-loading');
-        }
-
-        if (progress < 1) {
-          requestAnimationFrame(tick);
-        }
-      };
-
-      requestAnimationFrame(tick);
     }
   }
 
@@ -511,4 +463,25 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
   }
+
+  /* ---------- 7. FAQ 아코디언: 한 번에 하나만 열리도록, 열 때 나머지는 모두 닫는다 ---------- */
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item) => {
+    const btn = item.querySelector('.faq-item__q');
+    btn.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+      
+
+
+      faqItems.forEach((other) => {
+        other.classList.remove('is-open');
+        other.querySelector('.faq-item__q').setAttribute('aria-expanded', 'false');
+      });
+
+      if (willOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 });
