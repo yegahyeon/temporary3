@@ -21,12 +21,11 @@
   <div class="hero-nav__inner">
     <img class="hero-nav__logo" src="./source/logo.png" alt="브랜드포차 썸비" />
     <nav class="hero-nav__menu">
-      <a href="#">썸비만의 차별점</a>
-      <a href="#">수익률</a>
-      <a href="#">매장사진</a>
-      <a href="#">메뉴</a>
-      <a href="#">창업과정</a>
-      <a href="#">썸비의 혜택</a>
+      <a href="sec-cheat">썸비만의 차별점</a>
+      <a href="sec-proof">수익률</a>
+      <a href="sec-recipe">메뉴</a>
+      <a href="sec-process">창업과정</a>
+      <a href="sec-cost">창업비용</a>
     </nav>
     <a href="#inquiry" class="hero-nav__cta js-cta">창업 상담 받기</a>
   </div>
@@ -387,7 +386,7 @@
 <!-- ============================================================
      SECTION 7. 5개의 치트키
 ============================================================ -->
-<section class="sec-cheat">
+<section class="sec-cheat" id="sec-cheat">
   <p class="cheat-watermark f-calli">reason</p>
 
   <div class="inner">
@@ -430,7 +429,7 @@
 <!-- ============================================================
      SECTION 8. 눈속임 NO + 수익 인증
 ============================================================ -->
-<section class="sec-proof">
+<section class="sec-proof" id="sec-proof">
   <p class="proof-watermark f-calli">FAKE</p>
 
   <div class="inner">
@@ -509,7 +508,7 @@
 <!-- ============================================================
      SECTION 9-1. 레시피 라인업 (Figma node 501:184)
 ============================================================ -->
-<section class="sec-recipe">
+<section class="sec-recipe" id="sec-recipe">
   <div class="inner">
     <div class="recipe-head">
       <p class="recipe-sub">30년의 장사 경험과 10년 간의 포차 운영으로 다듬은<br />사계절 타지 않고 즐기는 메뉴!</p>
@@ -646,7 +645,7 @@
 <!-- ============================================================
      SECTION 10. 창업 절차 (Figma node 502:192)
 ============================================================ -->
-<section class="sec-process">
+<section class="sec-process" id="sec-process">
   <img class="deco process-bg" src="./source/process/bg-storefront.png" alt="" aria-hidden="true" />
 
   <div class="inner">
@@ -711,7 +710,7 @@
 <!-- ============================================================
      SECTION 10-1. 창업 비용 + 손익 분석 (Figma node 502:197)
 ============================================================ -->
-<section class="sec-cost">
+<section class="sec-cost" id="sec-cost">
   <img class="deco cost-bg" src="./source/cost/bg-calculator.png" alt="" aria-hidden="true" />
   <img class="deco cost-coin cost-coin--1" src="./source/cost/cal-1.png" alt="" aria-hidden="true" />
   <img class="deco cost-coin cost-coin--2" src="./source/cost/cal-2.png" alt="" aria-hidden="true" />
@@ -726,74 +725,74 @@
       </div>
 
       <div class="cost-tabs">
-        <span class="cost-tab cost-tab--active">브랜드전환</span>
-        <span class="cost-tab">업종변경</span>
-        <span class="cost-tab">신규창업</span>
+        <span class="cost-tab cost-tab--active" data-tab="brand">브랜드전환</span>
+        <span class="cost-tab" data-tab="pivot">업종변경</span>
+        <span class="cost-tab" data-tab="new">신규창업</span>
       </div>
 
-      <p class="cost-table-title">브랜드 전환</p>
-      <p class="cost-table-note">단위:원 / VAT 별도. 점포 상태별 변동 가능.</p>
+      <p class="cost-table-title" data-cost-title>브랜드 전환</p>
+      <p class="cost-table-note" data-cost-note>단위:원 / VAT 별도. 점포 상태별 변동 가능.</p>
 
       <div class="cost-table">
         <div class="cost-row cost-row--head">
           <span class="cost-cell cost-cell--label">세부항목</span>
           <span class="cost-cell cost-cell--note">비고</span>
-          <span class="cost-cell cost-cell--value">브랜드전환</span>
+          <span class="cost-cell cost-cell--value" data-row="header">브랜드전환</span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">가맹비</span>
           <span class="cost-cell cost-cell--note"><b>10호점까지 면제</b>브랜드 영업권 보호, 초기 매뉴얼</span>
-          <span class="cost-cell cost-cell--value cost-cell--waived">3,000,000<em class="f-griun">0원</em></span>
+          <span class="cost-cell cost-cell--value cost-cell--waived" data-row="franchiseFee"><span class="cost-old">3,000,000</span><em class="f-griun">0원</em></span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">교육비</span>
           <span class="cost-cell cost-cell--note">운영ㆍ메뉴 교육 (2~4주)</span>
-          <span class="cost-cell cost-cell--value">5,000,000</span>
+          <span class="cost-cell cost-cell--value" data-row="eduFee">5,000,000</span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">계약이행보증금</span>
           <span class="cost-cell cost-cell--note">200또는 보증보험 대체</span>
-          <span class="cost-cell cost-cell--value">보증보험<br />가능</span>
+          <span class="cost-cell cost-cell--value" data-row="deposit">보증보험<br />가능</span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">내부 인테리어</span>
           <span class="cost-cell cost-cell--note">평당 150만 (점포별 상이)</span>
-          <span class="cost-cell cost-cell--value">자율</span>
+          <span class="cost-cell cost-cell--value" data-row="interior">자율</span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">간판 및 사인물</span>
           <span class="cost-cell cost-cell--note">기본간판 (매장별 상이)</span>
-          <span class="cost-cell cost-cell--value">3,000,000</span>
+          <span class="cost-cell cost-cell--value" data-row="signage">3,000,000</span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">가구/비품</span>
           <span class="cost-cell cost-cell--note"></span>
-          <span class="cost-cell cost-cell--value">자율</span>
+          <span class="cost-cell cost-cell--value" data-row="furniture">자율</span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">시설/집기</span>
           <span class="cost-cell cost-cell--note">주방 설비 및 집기 일체</span>
-          <span class="cost-cell cost-cell--value">자율</span>
+          <span class="cost-cell cost-cell--value" data-row="facility">자율</span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">홍보/마케팅비</span>
           <span class="cost-cell cost-cell--note">온라인 마케팅 (매월)</span>
-          <span class="cost-cell cost-cell--value">자율</span>
+          <span class="cost-cell cost-cell--value" data-row="marketing">자율</span>
         </div>
         <div class="cost-row">
           <span class="cost-cell cost-cell--label">초도물품비</span>
           <span class="cost-cell cost-cell--note">초기물품 및 소모품</span>
-          <span class="cost-cell cost-cell--value">2,000,000</span>
+          <span class="cost-cell cost-cell--value" data-row="initialGoods">2,000,000</span>
         </div>
         <div class="cost-row cost-row--sub">
           <span class="cost-cell cost-cell--label">인테리어 별도공사</span>
           <span class="cost-cell cost-cell--note">철거/전기증설/화장실/냉난방/공조/<br />외관공사/상하수도/음향공사/소방 등</span>
-          <span class="cost-cell cost-cell--value"></span>
+          <span class="cost-cell cost-cell--value" data-row="interiorEtc"></span>
         </div>
         <div class="cost-row cost-row--total">
           <span class="cost-cell cost-cell--label">전체 총 투자금액</span>
           <span class="cost-cell cost-cell--note">*교육비 포함 재계산된 총액(가맹비 한시적 면제 적용)<br />*점포 상태별 변동 가능</span>
-          <span class="cost-cell cost-cell--value">10,000,000+@</span>
+          <span class="cost-cell cost-cell--value" data-row="total">10,000,000+@</span>
         </div>
       </div>
 

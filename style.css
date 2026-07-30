@@ -1190,6 +1190,7 @@ img {
   color: #000;
   text-align: center;
   transition: 0.4s;
+  box-shadow: 0px 0px 14px 0px #FFA400;
 }
 .cheat-grid .cheat-card:nth-child(1) { transform: rotate(5.27deg); }
 .cheat-grid .cheat-card:nth-child(2) { transform: rotate(-2.93deg); }
@@ -1205,9 +1206,9 @@ img {
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.1);
 }
-.cheat-card h3 { position: relative; font-size: 24px; font-weight: 600; line-height: 1.5; }
-.cheat-card p  { position: relative; font-size: 20px; line-height: 1.5; }
-.cheat-card p b { font-weight: 600; }
+.cheat-card h3 { position: relative; font-size: 28px; font-weight: 700; line-height: 1.5; color: #AD871F;}
+.cheat-card p  { position: relative; font-size: 20px; line-height: 1.5; color: #444444;}
+.cheat-card p b { font-weight: 600; color: #444444;}
 
 .cheat-card:hover {
   transform: rotate(0deg) !important;
@@ -1296,6 +1297,7 @@ img {
   width: 30px;
   height: 56px;
   filter: drop-shadow(0 0 24.1px #FF6200);
+  cursor: pointer;
 }
 
 .proof-gallery .zoom {
@@ -1382,7 +1384,7 @@ img {
    ========================================================= */
 .sec-recipe { position: relative; background: #f1f1ee;  }
 .sec-recipe .inner { max-width: none; padding: 0; }
-.recipe-head { position: relative; z-index: 1; text-align: center; padding: 100px 20px 0; }
+.recipe-head { position: relative; z-index: 1; text-align: center; padding: 150px 20px 0; }
 .recipe-sub { color: #000; font-size: 26px; line-height: 1.6; }
 .recipe-title {  font-family: 'NostalgicPoliceVibe', 'Nanum Brush Script'; margin-top: 18px; font-size: 80px; font-weight: 400; color: #111; }
 
@@ -1393,7 +1395,7 @@ img {
 .recipe-brush--2 { left: -20px; bottom: -200px; width: 500px;   }
 
 .recipe-track { position: relative; z-index: 1; overflow: hidden; width: 100%; margin-top: 30px; }
-.recipe-track + .recipe-track { margin-top: 14px; margin-bottom: 60px;}
+.recipe-track + .recipe-track { margin-top: 14px; margin-bottom: 150px;}
 
 .recipe-row {
   display: flex;
@@ -1501,8 +1503,8 @@ img {
 .step-icon__glyph { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 55%; }
 .step-icon__bg--combined { position: static; width: 83px; height: 83px; }
 
-.step-card h3 { color: #222; font-size: 30px; font-weight: 700; line-height: 1.4; }
-.step-card p { color: #4b4b4b; font-size: 17px; font-weight: 500; line-height: 1.5; }
+.step-card h3 { color: #222; font-size: 36px; font-weight: 700; line-height: 1.4; }
+.step-card p { color: #4b4b4b; font-size: 20px; font-weight: 500; line-height: 1.5; }
 
 /* =========================================================
    11-1. 창업 비용 + 손익 분석 (Figma node 502:197)
@@ -1534,7 +1536,7 @@ img {
 }
 
 .cost-tabs { margin-top: 30px; display: flex; gap: 14px; }
-.cost-tab { padding: 8px 18px; border: 1px solid #fff; border-radius: 90px; font-size: 16px; font-weight: 500; }
+.cost-tab { padding: 8px 18px; border: 1px solid #fff; border-radius: 90px; font-size: 16px; font-weight: 500; cursor: pointer; }
 .cost-tab--active { background: #fff; color: #000; font-weight: 600; }
 
 .cost-table-title { margin-top: 50px; font-size: 32px; font-weight: 700; text-align: center; }
@@ -1549,10 +1551,58 @@ img {
 .cost-cell--note { flex: 1; width: auto; border-left: 1px solid rgba(185, 185, 185, .4); align-items: start; }
 .cost-cell--value { width: 30%; border-left: 1px solid rgba(185, 185, 185, .4); justify-content: center; text-align: center; font-weight: 600; }
 
-.cost-cell--waived { flex-direction: column; gap: 4px; }
+.cost-cell--waived { flex-direction: column; gap: 4px; position: relative; }
 
 .cost-cell--waived s { opacity: .3; font-size: 13px; }
-.cost-cell--waived em { font-style: normal; font-size: 40px; font-weight: 400; color: #fff; text-shadow: 0 0 12px #fe105e; }
+
+.cost-cell--waived .cost-old {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  transition: opacity .6s ease;
+}
+.cost-cell--waived .cost-old::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s ease .1s;
+}
+.cost-cell--waived.is-revealed .cost-old {
+  opacity: .35;
+}
+.cost-cell--waived.is-revealed .cost-old::after {
+  transform: scaleX(1);
+}
+
+.cost-cell--waived em {
+  font-style: normal; font-size: 40px; font-weight: 400; color: #fff; text-shadow: 0 0 12px #fe105e;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 1;
+}
+.cost-cell--waived.is-revealed em {
+  animation: cost-sticker-pop .5s cubic-bezier(.34, 1.56, .64, 1) .45s both;
+}
+@keyframes cost-sticker-pop {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(2.4) rotate(-10deg); }
+  60%  { opacity: 1; transform: translate(-50%, -50%) scale(0.9) rotate(4deg); }
+  80%  { transform: translate(-50%, -50%) scale(1.08) rotate(-2deg); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cost-cell--waived .cost-old { transition: none; }
+  .cost-cell--waived .cost-old::after { transition: none; }
+  .cost-cell--waived em { animation: none; opacity: 1; }
+}
 
 .cost-row--sub { background: rgba(255, 255, 255, .06); }
 .cost-row--sub .cost-cell--label { align-items: center; }
@@ -1619,8 +1669,8 @@ img {
 .pl-profit__note { text-align: right; font-size: 10px; color: #999; line-height: 1.4; }
 .pl-profit__badge {
   position: absolute;
-  right: 14px;
-  bottom: -14px;
+  right: -83px;
+  bottom: -38px;
   width: 110px;
   height: 110px;
   border-radius: 50%;
@@ -1633,6 +1683,7 @@ img {
   transform: rotate(19deg);
   text-align: center;
   box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
+  animation: cost-sticker-pop .5s cubic-bezier(0.3, 1.56, .64, 1) .45s both;
 }
 .pl-profit__badge span { font-size: 16px; }
 .pl-profit__badge b { font-size: 26px; letter-spacing: -1px; }
@@ -1721,7 +1772,7 @@ img {
 /* =========================================================
    12-1. 업종변경? 걱정 NO! (Figma node 482:899)
    ========================================================= */
-.sec-pivot { background: #000; padding: 120px 20px; }
+.sec-pivot { background: #000; padding: 150px 20px; }
 .pivot-brush { width: 700px; opacity: .9; }
 .pivot-brush--1 { left: -80px; top: -100px; transform: rotate(116.5deg); }
 .pivot-brush--2 { right: -130px; bottom: 100px; transform: rotate(-77.7deg); }
@@ -1780,7 +1831,7 @@ img {
 /* =========================================================
    12-2. 자금이 부족해도 괜찮습니다! (Figma node 482:934)
    ========================================================= */
-.sec-loan { background: #fff; padding: 100px 20px; }
+.sec-loan { background: #fff; padding: 250px 20px; }
 .loan-bg { inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .1; }
 .sec-loan .inner { position: relative; z-index: 1; }
 
@@ -2057,6 +2108,22 @@ img {
   /* ---------- 공통 ---------- */
   .cta-btn { width: 320px; font-size: 17px; padding: 15px 0; border-radius: 12px; }
   .hl { padding: 0 12px; }
+  .hero-quote {font-size: 24px;}
+  .hero-headline {font-size:48px;}
+  .hero-desc{font-size: 18px;}
+  .story-lead  {font-size: 18px;}
+  .story-divider p {font-size: 24px;}
+  .story-divider__line{width: 50px;}
+  .story-years__text {font-size: 90px;}
+  .story-years{padding: 0px;}
+  .story-branches__circles span {width: 100px; height: 100px;}
+  .story-connector {height: 40px; margin: 50px auto 10px;}
+  .story-branches__label{margin-top: 80px;}
+  .story-note {font-size: 14px;}
+  .sec-story {padding: 0;}
+  .story-final{font-size: 20px;}
+  .story-final__highlight {font-size: 28px;}
+  .hero-nav__menu {display: none;}
 
   /* 섹션 경계 1px 헤어라인 방지: 배경색이 다른 섹션끼리 맞닿을 때 모바일 화면비율에서
      생기는 서브픽셀 반올림 여백을, 다음 섹션이 1px 겹쳐 덮도록 해서 안 보이게 한다. */
@@ -2220,11 +2287,9 @@ img {
 
   /* ---------- 11. 지점별 수익 테이블 ---------- */
   .sec-branch { padding: 88px 14px 110px; }
-  .branch-table { width: 100%; }
-  .branch-table { gap: 10px; }
+  .branch-table { width: 70%; gap: 50px; flex-direction: column;}
   .branch-col { width: auto; flex: 1 1 0; min-width: 0; border-radius: 10px; }
   .branch-tab { height: 46px; font-size: 13px; border-radius: 10px 10px 0 0; }
-  .branch-photo { height: 100px; }
   .branch-body { padding: 10px 5px; gap: 5px; }
   .branch-box { padding: 8px 4px; gap: 3px; }
   .branch-box--sales .value { font-size: 13px; }
@@ -2238,22 +2303,23 @@ img {
   .sec-branch .cta-btn { margin-top: 56px; }
 
   /* ---------- 11-1. 레시피 라인업 ---------- */
-  .sec-recipe { padding: 88px 0; }
+  .sec-recipe { padding: 0px; }
   .recipe-sub { font-size: 15px; }
+  
   .recipe-title { font-size: clamp(28px, 8vw, 40px); }
   .recipe-watermark { width: 900px; }
   .recipe-brush--1 { width: 220px; }
   .recipe-brush--2 { width: 190px; }
   .recipe-track { margin-top: 40px; }
-  .recipe-track + .recipe-track { margin-top: 10px; }
+  .recipe-track + .recipe-track { margin-top: 10px; margin-bottom: 80px;}
   .recipe-row { gap: 10px; }
-  .recipe-card { width: 130px; padding: 14px 10px; gap: 10px; }
+  .recipe-card { width: 130px; gap: 10px; }
   .recipe-photo { width: 100px; height: 100px; }
   .recipe-name { font-size: 15px; }
 
   /* ---------- 12. 창업 절차 ---------- */
   .sec-process { padding: 88px 18px; }
-  .process-title { font-size: clamp(24px, 7vw, 40px); }
+  .process-title { font-size: 24px; }
   .process-sub { font-size: clamp(15px, 4vw, 18px); }
   .step-grid { margin-top: 48px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; }
   .step-card { padding: 20px 14px; gap: 16px; border-radius: 14px; }
@@ -2277,9 +2343,11 @@ img {
   .pl-head__title { font-size: 44px; }
   .pl-profit { flex-direction: column; gap: 12px; padding: 16px; }
   .pl-profit__note { text-align: left; }
-  .pl-profit__badge { position: static; align-self: flex-end; width: 84px; height: 84px; margin-top: -56px; }
+  .pl-profit__badge {align-self: flex-end; width: 84px; height: 84px; margin-top: -56px; right: -30px; bottom: -10px;}
   .pl-profit__badge span { font-size: 12px; }
   .pl-profit__badge b { font-size: 20px; }
+  .cost-cell--waived.is-revealed em {font-size: 24px;}
+  .cost-row--total .cost-cell--value {font-size: 14px;}
 
   /* ---------- 13. 선착순 10호점 한정 ---------- */
   .sec-launch { padding: 70px 16px 0; }
@@ -2296,6 +2364,8 @@ img {
   .pivot-photo, .pivot-photo--after { width: 100%; max-width: 320px; }
   .pivot-photo img, .pivot-photo--after img { height: auto; aspect-ratio: 4/3; }
   .pivot-foot__sub { font-size: 16px; }
+  .pivot-foot__hl {line-height: 2.5;}
+  .pivot-foot__main {font-size: 28px; text-wrap: nowrap;}
 
   /* ---------- 13-2. 자금이 부족해도 괜찮습니다! ---------- */
   .sec-loan { padding: 70px 16px; }
@@ -2332,9 +2402,10 @@ img {
    C. 표준 모바일 (~480px)  ── 세부 미세조정
    ========================================================= */
 @media screen and (max-width: 480px) {
+  .hero-quote {font-size: 20px;}
   .cta-btn { width: 100%; max-width: 320px; }
 
-  .step-grid { grid-template-columns: 1fr; max-width: 320px; }
+  .step-grid { grid-template-rows: 1fr; max-width: 320px; }
 
   .expense-grid { max-width: 300px;  }
   .expense-card .thumb { width: 78px; height: 78px; }
@@ -2353,8 +2424,7 @@ img {
   .compare-gray, .compare-orange { padding: 24px 14px; }
 
   .branch-tab { font-size: 12px; height: 42px; }
-  .branch-photo { height: 80px; }
-  .stamp { width: 56px; top: -34px; }
+  .stamp { width: 100px; top: -34px; right: -30px;}
 
   .form-field .select-wrap::after{width: 4px; height: 4px;;}
   .compare-orange li {font-size:16px;}

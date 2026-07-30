@@ -342,6 +342,130 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ---------- 창업 비용 표: 탭(브랜드전환/업종변경/신규창업)별 값 ----------
+     라벨/비고 칸은 탭이 바뀌어도 그대로 두고, cost-cell--value만 갈아끼운다.
+     탭별 실제 금액은 아래 COST_TABLE_DATA만 고치면 된다 — 각 행의 key는
+     index.html의 해당 .cost-cell--value에 붙은 data-row 값과 대응된다.
+     가맹비처럼 "면제" 연출(취소선 + 스티커)이 필요한 행은 값을 문자열 대신
+     { value, waived } 객체로 적으면 된다. */
+  const COST_TABLE_DATA = {
+    brand: {
+      title: '브랜드 전환',
+      note: '단위:원 / VAT 별도. 점포 상태별 변동 가능.',
+      rows: {
+        header: '브랜드전환',
+        franchiseFee: { value: '3,000,000', waived: '0원' },
+        eduFee: '5,000,000',
+        deposit: '보증보험<br />가능',
+        interior: '자율',
+        signage: '3,000,000',
+        furniture: '자율',
+        facility: '자율',
+        marketing: '자율',
+        initialGoods: '2,000,000',
+        interiorEtc: '',
+        total: '10,000,000+@',
+      },
+    },
+    /* TODO: pivot(업종변경)/new(신규창업) 값은 브랜드전환 값을 임시로 복사해둔 것.
+       실제 금액이 확정되면 아래 rows만 교체하면 된다. */
+    pivot: {
+      title: '업종변경',
+      note: '단위:원 / VAT 별도. 점포 상태별 변동 가능.',
+      rows: {
+        header: '업종변경',
+        franchiseFee: { value: '3,000,000', waived: '0원' },
+        eduFee: '5,000,000',
+        deposit: '보증보험<br />가능',
+        interior: '자율',
+        signage: '3,000,000',
+        furniture: '자율',
+        facility: '자율',
+        marketing: '자율',
+        initialGoods: '2,000,000',
+        interiorEtc: '',
+        total: '10,000,000+@',
+      },
+    },
+    new: {
+      title: '신규창업',
+      note: '단위:원 / VAT 별도. 점포 상태별 변동 가능.',
+      rows: {
+        header: '신규창업',
+        franchiseFee: { value: '3,000,000', waived: '0원' },
+        eduFee: '5,000,000',
+        deposit: '보증보험<br />가능',
+        interior: '자율',
+        signage: '3,000,000',
+        furniture: '자율',
+        facility: '자율',
+        marketing: '자율',
+        initialGoods: '2,000,000',
+        interiorEtc: '',
+        total: '10,000,000+@',
+      },
+    },
+  };
+
+  /* 3,000,000원에 밑줄이 그어지며 흐려지고, 이어서 "0원"이 스티커처럼 착 붙는 연출을
+     (재)시작한다. 클래스를 껐다 켜서 CSS 애니메이션을 처음부터 다시 재생시킨다. */
+  const playWaivedReveal = (el) => {
+    el.classList.remove('is-revealed');
+    void el.offsetWidth; /* 리플로우 강제 → 애니메이션 재시작 */
+    el.classList.add('is-revealed');
+  };
+
+  const renderCostValueCell = (el, data) => {
+    if (data && typeof data === 'object' && 'waived' in data) {
+      el.classList.add('cost-cell--waived');
+      el.innerHTML = `<span class="cost-old">${data.value}</span><em class="f-griun">${data.waived}</em>`;
+      playWaivedReveal(el);
+    } else {
+      el.classList.remove('cost-cell--waived', 'is-revealed');
+      el.innerHTML = data || '';
+    }
+  };
+
+  const costTitleEl = document.querySelector('[data-cost-title]');
+  const costNoteEl = document.querySelector('[data-cost-note]');
+  const costTabEls = document.querySelectorAll('.cost-tab[data-tab]');
+  const costValueEls = document.querySelectorAll('.cost-table .cost-cell--value[data-row]');
+
+  const renderCostTab = (tabKey) => {
+    const data = COST_TABLE_DATA[tabKey];
+    if (!data) return;
+    if (costTitleEl) costTitleEl.textContent = data.title;
+    if (costNoteEl) costNoteEl.textContent = data.note;
+    costValueEls.forEach((el) => renderCostValueCell(el, data.rows[el.dataset.row]));
+  };
+
+  if (costTabEls.length) {
+    costTabEls.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        if (tab.classList.contains('cost-tab--active')) return;
+        costTabEls.forEach((t) => t.classList.remove('cost-tab--active'));
+        tab.classList.add('cost-tab--active');
+        renderCostTab(tab.dataset.tab);
+      });
+    });
+  }
+
+  /* 최초 진입 시(브랜드전환 탭)의 가맹비 면제 연출만은 스크롤로 화면에 들어오는
+     시점에 재생한다. 그 이후(탭 전환)의 재생은 playWaivedReveal이 즉시 담당. */
+  const costWaivedEl = document.querySelector('.cost-cell--waived');
+  if (costWaivedEl) {
+    if (window.gsap && window.ScrollTrigger) {
+      ScrollTrigger.create({
+        trigger: costWaivedEl,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => costWaivedEl.classList.add('is-revealed'),
+      });
+    } else {
+      costWaivedEl.classList.add('is-revealed');
+    }
+  }
+
   /* ---------- 1. CTA 버튼 → 상담 폼으로 부드럽게 스크롤 ---------- */
   document.querySelectorAll('.js-cta').forEach((btn) => {
     btn.addEventListener('click', (e) => {
