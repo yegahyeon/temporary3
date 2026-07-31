@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
+  
   /* ---------- 2. 연락처 자동 하이픈 포맷 (010-0000-0000) ---------- */
   const phoneInput = document.querySelector('#phone');
   if (phoneInput) {
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
       phoneInput.value = formatted;
     });
   }
-
+  
   /* ---------- 3. 셀렉트 선택 시 글자색 변경 (placeholder 스타일) ---------- */
   const budgetSelect = document.querySelector('#budget');
   if (budgetSelect) {
@@ -499,17 +499,17 @@ document.addEventListener('DOMContentLoaded', () => {
       budgetSelect.classList.toggle('filled', budgetSelect.value !== '');
     });
   }
-
+  
   /* ---------- 4. 상담 신청 폼 검증 및 제출 ---------- */
   const form = document.querySelector('#inquiryForm');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-
+      
       const name = form.name.value.trim();
       const phone = form.phone.value.trim();
       const agree = form.agree.checked;
-
+      
       if (!name) {
         alert('이름을 입력해주세요.');
         form.name.focus();
@@ -524,28 +524,28 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('개인정보 수집 및 이용에 동의해주세요.');
         return;
       }
-
+      
       /* 실제 서비스에서는 아래에 서버 전송 로직(fetch 등)을 연결하세요. */
       alert(`${name}님, 상담 신청이 접수되었습니다.\n담당자가 빠르게 연락드리겠습니다.`);
       form.reset();
       budgetSelect && budgetSelect.classList.remove('filled');
     });
   }
-
+  
   /* ---------- 5. 수익 인증 갤러리 스와이퍼 (profit1~3, 확대 이미지 동기화) ---------- */
   const proofSwiperEl = document.querySelector('.proof-swiper');
   if (proofSwiperEl && window.Swiper) {
     const zoomBox = document.querySelector('.proof-gallery .zoom');
     const zoomImg = document.querySelector('.proof-gallery .zoom-img');
     const proofImages = ['./source/profit1.jpg', './source/profit2.png', './source/profit3.png'];
-
+    
     const playZoomPop = () => {
       if (!zoomBox) return;
       zoomBox.classList.remove('is-zooming');
       void zoomBox.offsetWidth; /* 리플로우 강제 → 애니메이션 재시작 */
       zoomBox.classList.add('is-zooming');
     };
-
+    
     new Swiper(proofSwiperEl, {
       slidesPerView: 3,
       centeredSlides: true,
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
   }
-
+  
   /* ---------- 6. 개인정보 수집 및 이용 안내 ---------- */
   const privacyLink = document.querySelector('.form-agree .underline');
   if (privacyLink) {
@@ -580,14 +580,14 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       alert(
         '[개인정보 수집 및 이용 안내]\n\n' +
-          '수집 항목: 이름, 연락처, 창업 희망지역, 창업 예산, 문의 내용\n' +
-          '수집 목적: 창업 상담 및 안내\n' +
-          '보유 기간: 상담 완료 후 1년\n\n' +
-          '동의를 거부할 수 있으나, 거부 시 상담 신청이 제한됩니다.'
+        '수집 항목: 이름, 연락처, 창업 희망지역, 창업 예산, 문의 내용\n' +
+        '수집 목적: 창업 상담 및 안내\n' +
+        '보유 기간: 상담 완료 후 1년\n\n' +
+        '동의를 거부할 수 있으나, 거부 시 상담 신청이 제한됩니다.'
       );
     });
   }
-
+  
   /* ---------- 7. FAQ 아코디언: 한 번에 하나만 열리도록, 열 때 나머지는 모두 닫는다 ---------- */
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach((item) => {
@@ -595,16 +595,27 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const willOpen = !item.classList.contains('is-open');
       
-
-
+      
+      
       faqItems.forEach((other) => {
         other.classList.remove('is-open');
         other.querySelector('.faq-item__q').setAttribute('aria-expanded', 'false');
       });
-
+      
       if (willOpen) {
         item.classList.add('is-open');
         btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  
+  /* ---------- 1=8. top 버튼 → 상단으로 부드럽게 스크롤 ---------- */
+  document.querySelectorAll('.top').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector('#sec-hero');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
   });
