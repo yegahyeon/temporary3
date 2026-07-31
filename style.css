@@ -140,7 +140,7 @@ section { position: relative; width: 100%; overflow: hidden; }
   justify-content: space-between;
   gap: 24px;
 }
-.hero-nav__logo { height: 48px; width: auto; }
+.hero-nav__logo { height: 60px; width: auto; }
 .hero-nav__menu {
   display: flex;
   align-items: center;
