@@ -377,14 +377,14 @@ document.addEventListener('DOMContentLoaded', () => {
         franchiseFee: { value: '3,000,000', waived: '0원' },
         eduFee: '5,000,000',
         deposit: '보증보험<br />가능',
-        interior: '자율',
+        interior: '15,000,000',
         signage: '3,000,000',
         furniture: '자율',
-        facility: '자율',
+        facility: '3,000,000',
         marketing: '자율',
         initialGoods: '2,000,000',
         interiorEtc: '',
-        total: '10,000,000+@',
+        total: '28,000,000+@',
       },
     },
     new: {
@@ -395,14 +395,14 @@ document.addEventListener('DOMContentLoaded', () => {
         franchiseFee: { value: '3,000,000', waived: '0원' },
         eduFee: '5,000,000',
         deposit: '보증보험<br />가능',
-        interior: '자율',
+        interior: '45,000,00',
         signage: '3,000,000',
-        furniture: '자율',
-        facility: '자율',
+        furniture: '6,000,000',
+        facility: '15,000,000',
         marketing: '자율',
         initialGoods: '2,000,000',
         interiorEtc: '',
-        total: '10,000,000+@',
+        total: '76,000,000+@',
       },
     },
   };
@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (proofSwiperEl && window.Swiper) {
     const zoomBox = document.querySelector('.proof-gallery .zoom');
     const zoomImg = document.querySelector('.proof-gallery .zoom-img');
-    const proofImages = ['./source/profit1.jpg', './source/profit2.jpg', './source/profit3.jpg'];
+    const proofImages = ['./source/profit1.jpg', './source/profit2.png', './source/profit3.png'];
 
     const playZoomPop = () => {
       if (!zoomBox) return;
